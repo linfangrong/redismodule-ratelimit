@@ -14,8 +14,8 @@ For example:
 ```
 RATELIMIT.ALLOW abc 1000000000 100
                  ▲       ▲      ▲
-				 |       |      └─────  100 burst
-				 |       └────────────  1 tokens / 1 seconds
-				 └────────────────────  key "abc"
+                 |       |      └─────  100 burst
+                 |       └────────────  1 tokens / 1 seconds
+                 └────────────────────  key "abc"
 ```
 
