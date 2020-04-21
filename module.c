@@ -33,7 +33,7 @@ int RedisModule_OnLoad(RedisModuleCtx *ctx, RedisModuleString **argv, int argc) 
     return REDISMODULE_ERR;
   }
 
-  if (RedisModule_CreateCommand(ctx, "ratelimit.allow", AllowCommand, "write",
+  if (RedisModule_CreateCommand(ctx, "ratelimit.allow", AllowCommand, "write fast",
     1, 1, 1) == REDISMODULE_ERR) {
     return REDISMODULE_ERR;
   }

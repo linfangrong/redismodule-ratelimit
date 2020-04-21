@@ -6,7 +6,7 @@ Install and configure redis.
 From Redis (try running `redis-cli`) use the new `RATELIMIT.ALLOW` command loaded by
 the module. It's used like this:
 ```
-RATELIMIT.ALLOW <key> <interval> <burst>
+RATELIMIT.ALLOW <key> <interval(ns)> <burst>
 ```
 Where `key` is an identifier to rate limit against.
 

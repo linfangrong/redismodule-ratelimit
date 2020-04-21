@@ -70,15 +70,15 @@ func newLimiterItem(resource string, timestamp time.Time, interval int64, burst 
 }
 
 func (item *limiterItem) update(timestamp time.Time, interval int64, burst int64) {
-	item.lastTimestamp = timestamp
 	if item.interval != interval {
 		item.interval = interval
-		item.rateLimiter.SetLimitAt(timestamp, rate.Every(time.Duration(interval)))
+		item.rateLimiter.SetLimitAt(item.lastTimestamp, rate.Every(time.Duration(interval)))
 	}
 	if item.burst != burst {
 		item.burst = burst
-		item.rateLimiter.SetBurstAt(timestamp, int(burst))
+		item.rateLimiter.SetBurstAt(item.lastTimestamp, int(burst))
 	}
+	item.lastTimestamp = timestamp
 }
 
 func (lm *Limiter) GetRateLimiter(resource string, timestamp time.Time, interval int64, burst int64) (rateLimiter *rate.Limiter) {
